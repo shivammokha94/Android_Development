@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.app.Activity;
+import android.view.View;
 
 
 public class MainActivity extends Activity {
@@ -10,36 +12,18 @@ public class MainActivity extends Activity {
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
-
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_main);
          Log.d(msg, "This is an on create event");
-
      }
 
-     @Override
-     protected void onStart(){
-         super.onStart();
-         Log.d(msg, "This is a start event");
+     public void startService(View view){
+         startService(new Intent(getBaseContext(), myservice.class));
      }
 
-     @Override
-     protected void onResume(){
-         super.onResume();
-         Log.d(msg, "This is a resume event");
-     }
-
-     @Override
-     protected void onStop(){
-         super.onStop();
-         Log.d(msg, "This is a stop event");
-     }
-
-     @Override
-     protected void onDestroy(){
-         super.onDestroy();
-         Log.d(msg, "This is a destroy event");
-     }
+     public void stopService(View view){
+         stopService(new Intent(getBaseContext(), myservice.class));
+    }
 }
 
 
